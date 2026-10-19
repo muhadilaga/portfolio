@@ -37,17 +37,30 @@ export default function Loader({ onDone, onDestroy }: LoaderProps) {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const minTime = reduce ? 500 : L.minDuration;
 
-    const decode = (src: string) =>
-      src
-        ? new Promise((res) => {
-            const i = new Image();
-            i.onload = i.onerror = res;
-            i.src = src;
-          })
-        : null;
+    const decode = (src: string) => {
+      if (!src) return null;
+      try {
+        return new Promise((res) => {
+          const i = new Image();
+          i.onload = i.onerror = () => res(null);
+          i.src = src;
+        });
+      } catch {
+        return null;
+      }
+    };
+
+    let fontPromise: Promise<unknown> | null = null;
+    try {
+      if (typeof document !== "undefined" && document.fonts && document.fonts.ready) {
+        fontPromise = document.fonts.ready.catch(() => null);
+      }
+    } catch {
+      fontPromise = null;
+    }
 
     const waits = [
-      typeof document !== "undefined" && document.fonts && document.fonts.ready,
+      fontPromise,
       decode(L.src),
       decode(CONFIG.characterSrc),
       decode(CONFIG.emblemSrc),
@@ -57,9 +70,13 @@ export default function Loader({ onDone, onDestroy }: LoaderProps) {
     Promise.race([
       Promise.all(waits),
       new Promise((r) => setTimeout(r, 7000)),
-    ]).then(() => {
-      ready = true;
-    });
+    ])
+      .then(() => {
+        ready = true;
+      })
+      .catch(() => {
+        ready = true;
+      });
 
     let shown = 0;
     let msgIdx = -1;
@@ -70,6 +87,7 @@ export default function Loader({ onDone, onDestroy }: LoaderProps) {
     const finish = () => {
       if (done) return;
       done = true;
+      clearTimeout(failsafeTimer);
       cancelAnimationFrame(raf);
       if (numRef.current) numRef.current.textContent = "100";
       if (barRef.current) barRef.current.style.transform = "scaleX(1)";
@@ -87,6 +105,11 @@ export default function Loader({ onDone, onDestroy }: LoaderProps) {
     };
 
     finishRef.current = finish;
+
+    // Failsafe ABSOLUT: 9000ms tanpa syarat
+    const failsafeTimer = setTimeout(() => {
+      finish();
+    }, 9000);
 
     const tick = (now: number) => {
       const t = Math.min((now - t0) / minTime, 1);
@@ -130,6 +153,7 @@ export default function Loader({ onDone, onDestroy }: LoaderProps) {
     raf = requestAnimationFrame(tick);
 
     return () => {
+      clearTimeout(failsafeTimer);
       cancelAnimationFrame(raf);
       window.removeEventListener("keydown", handleKeyDown);
     };
@@ -186,6 +210,11 @@ export default function Loader({ onDone, onDestroy }: LoaderProps) {
             id="ldSkip"
             type="button"
             onClick={() => finishRef.current()}
+            onPointerDown={(e) => {
+              if (e.button === 0) {
+                finishRef.current();
+              }
+            }}
           >
             {L.skip}
           </button>
