@@ -1,0 +1,73 @@
+[
+  {
+    "name": "Belajar Prinsip Pemrograman SOLID",
+    "issuer": "Dicoding",
+    "date": "Agustus 2026",
+    "file": "dicoding-solid.pdf",
+    "thumb": "thumbs/dicoding-solid-1.png"
+  },
+  {
+    "name": "Belajar Penerapan Data Science dengan Microsoft Fabric",
+    "issuer": "Dicoding",
+    "date": "Agustus 2026",
+    "file": "dicoding-data-science-fabric.pdf",
+    "thumb": "thumbs/dicoding-data-science-fabric-1.png"
+  },
+  {
+    "name": "Membangun Aplikasi Gen AI dengan Microsoft Azure",
+    "issuer": "Dicoding",
+    "date": "September 2026",
+    "file": "dicoding-genai-azure.pdf",
+    "thumb": "thumbs/dicoding-genai-azure-1.png"
+  },
+  {
+    "name": "Google AI Essentials Specialization",
+    "issuer": "Google / Coursera",
+    "date": "September 2026",
+    "verify": "https://coursera.org/verify/CXIFV3O4CUNE",
+    "file": "coursera-ai-essentials-specialization.pdf",
+    "thumb": "thumbs/coursera-ai-essentials-specialization-1.png"
+  },
+  {
+    "name": "IT-AI Agent for Programming",
+    "issuer": "IBM (Hacktiv8)",
+    "date": "September 2026",
+    "file": "ibm-hacktiv8-it-ai-agent.pdf",
+    "thumb": "thumbs/ibm-hacktiv8-it-ai-agent-1.png"
+  },
+  {
+    "name": "Claude 101",
+    "issuer": "Anthropic",
+    "date": "Oktober 2026",
+    "file": "anthropic-claude-101.pdf",
+    "thumb": "thumbs/anthropic-claude-101-1.png"
+  },
+  {
+    "name": "Short Class UI/UX Research Design (Pemenang Peserta Teraktif)",
+    "issuer": "KarirNex",
+    "date": "Agustus 2026",
+    "file": "karirnex-uiux-pemenang.pdf",
+    "thumb": "thumbs/karirnex-uiux-pemenang-1.png"
+  },
+  {
+    "name": "Skill Sprint: Fabric + Gen AI Azure",
+    "issuer": "Microsoft Elevate",
+    "date": "September 2026",
+    "file": "microsoft-elevate-skill-sprint.pdf",
+    "thumb": "thumbs/microsoft-elevate-skill-sprint-1.png"
+  },
+  {
+    "name": "Software Engineer Intern",
+    "issuer": "HackerRank",
+    "date": "September 2026",
+    "file": "hackerrank-software-engineer-intern.pdf",
+    "thumb": "thumbs/hackerrank-software-engineer-intern-1.png"
+  },
+  {
+    "name": "AI Career Readiness Training",
+    "issuer": "ASEAN Foundation",
+    "date": "Oktober 2026",
+    "file": "asean-foundation-ai-career-readiness.png",
+    "thumb": "thumbs/asean-foundation-ai-career-readiness.png"
+  }
+]
