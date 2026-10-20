@@ -1044,7 +1044,19 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
     max-width: 100%;
     overflow-wrap: break-word;
   }
-  .emb { display: none; }
+  .emb {
+    --es: min(60vw, 240px);
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: calc(13% + 55px);
+    width: var(--es);
+    height: var(--es);
+    margin: calc(var(--es) / -2) 0 0 calc(var(--es) / -2);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.8;
+  }
   .hero-center {
     top: 13%;
     padding: 0 var(--pad);
