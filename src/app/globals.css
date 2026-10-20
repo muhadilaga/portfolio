@@ -73,7 +73,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
               radial-gradient(circle at 50% 20%, rgba(218, 41, 28, .08), transparent 45%);
 }
 
-/* ============ 4. TOPBAR ============ */
+/* ============ 4. TOPBAR & FLOATING LOGO ============ */
 .top {
   position: absolute;
   z-index: 100;
@@ -81,7 +81,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   left: 0;
   right: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 1.5rem var(--pad);
   pointer-events: none;
@@ -89,6 +89,10 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .top > * { pointer-events: auto; }
 
 .logo {
+  position: fixed;
+  top: 1.5rem;
+  left: var(--pad);
+  z-index: 100;
   width: 2.8rem;
   height: 2.8rem;
   display: grid;
@@ -97,6 +101,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   font-size: .8rem;
   letter-spacing: .04em;
   transition: transform .4s var(--ease);
+  pointer-events: auto;
+  cursor: pointer;
 }
 .logo.txt { background: var(--red); width: 2.4rem; height: 2.4rem; }
 .logo img {
@@ -957,10 +963,20 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   }
 
   /* Navigation: smooth horizontal scrolling strip without scrollbars, CTA reachable */
-  .logo { display: none; }
+  .logo {
+    display: grid;
+    top: 0.75rem;
+    left: var(--pad);
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+  .logo.txt {
+    width: 2.1rem;
+    height: 2.1rem;
+  }
   .top {
     justify-content: stretch;
-    padding: 0.75rem var(--pad);
+    padding: 0.75rem var(--pad) 0.75rem calc(var(--pad) + 2.25rem + 0.6rem);
     pointer-events: none;
   }
   .nav {

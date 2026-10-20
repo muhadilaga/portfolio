@@ -32,7 +32,7 @@ export default function TopBar({ currentSection, onNavigate }: TopBarProps) {
   const [logoLoaded, setLogoLoaded] = useState(true);
 
   return (
-    <header className="top">
+    <>
       <a
         className={`logo ${!logoLoaded || !CONFIG.logoSrc ? "txt" : ""}`}
         id="logo"
@@ -54,35 +54,37 @@ export default function TopBar({ currentSection, onNavigate }: TopBarProps) {
           CONFIG.logoText
         )}
       </a>
-      <nav className="nav" id="nav" aria-label="Utama">
-        <div className="nav-group">
-          {SECTION_IDS.map((id) => (
-            <a
-              key={id}
-              href={`#${id}`}
-              data-go={id}
-              className={currentSection === id ? "on" : ""}
-              onClick={(e) => {
-                e.preventDefault();
-                onNavigate(id);
-              }}
-            >
-              {NAV_LABELS[id]}
-            </a>
-          ))}
-        </div>
-        <a
-          className="cta"
-          href="#contact"
-          data-go="contact"
-          onClick={(e) => {
-            e.preventDefault();
-            onNavigate("contact");
-          }}
-        >
-          Let’s Talk ↗
-        </a>
-      </nav>
-    </header>
+      <header className="top">
+        <nav className="nav" id="nav" aria-label="Utama">
+          <div className="nav-group">
+            {SECTION_IDS.map((id) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                data-go={id}
+                className={currentSection === id ? "on" : ""}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate(id);
+                }}
+              >
+                {NAV_LABELS[id]}
+              </a>
+            ))}
+          </div>
+          <a
+            className="cta"
+            href="#contact"
+            data-go="contact"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate("contact");
+            }}
+          >
+            Let’s Talk ↗
+          </a>
+        </nav>
+      </header>
+    </>
   );
 }
