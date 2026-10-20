@@ -22,7 +22,7 @@ export default function Loader({ onDone, onDestroy }: LoaderProps) {
   const numRef = useRef<HTMLElement>(null);
   const barRef = useRef<HTMLElement>(null);
   const msgRef = useRef<HTMLParagraphElement>(null);
-  const finishRef = useRef<() => void>(() => {});
+  const finishRef = useRef<(immediate?: boolean) => void>(() => {});
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.location.search.includes("noloader")) {
@@ -84,7 +84,7 @@ export default function Loader({ onDone, onDestroy }: LoaderProps) {
     let raf = 0;
     const t0 = performance.now();
 
-    const finish = () => {
+    const finish = (immediate = false) => {
       if (done) return;
       done = true;
       clearTimeout(failsafeTimer);
@@ -94,14 +94,20 @@ export default function Loader({ onDone, onDestroy }: LoaderProps) {
       if (msgRef.current) msgRef.current.textContent = L.doneMessage;
 
       setIsDone(true);
-      setTimeout(
-        () => {
-          setIsExit(true);
-          setTimeout(onDone, reduce ? 0 : 450);
-          setTimeout(onDestroy, reduce ? 80 : 1500);
-        },
-        reduce ? 0 : 550
-      );
+      if (immediate || reduce) {
+        setIsExit(true);
+        onDone();
+        setTimeout(onDestroy, 300);
+      } else {
+        setTimeout(
+          () => {
+            setIsExit(true);
+            setTimeout(onDone, 200);
+            setTimeout(onDestroy, 500);
+          },
+          350
+        );
+      }
     };
 
     finishRef.current = finish;
@@ -145,7 +151,7 @@ export default function Loader({ onDone, onDestroy }: LoaderProps) {
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" || e.key === "Enter") {
-        finish();
+        finish(true);
       }
     };
 
@@ -209,12 +215,7 @@ export default function Loader({ onDone, onDestroy }: LoaderProps) {
             style={{ "--d": ".3s" } as React.CSSProperties}
             id="ldSkip"
             type="button"
-            onClick={() => finishRef.current()}
-            onPointerDown={(e) => {
-              if (e.button === 0) {
-                finishRef.current();
-              }
-            }}
+            onClick={() => finishRef.current(true)}
           >
             {L.skip}
           </button>

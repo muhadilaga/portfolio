@@ -75,7 +75,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 
 /* ============ 4. TOPBAR ============ */
 .top {
-  position: fixed;
+  position: absolute;
   z-index: 100;
   top: 0;
   left: 0;
@@ -1055,9 +1055,9 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
     position: absolute;
     z-index: 1;
     right: 0;
-    bottom: 58%;
-    width: min(48vw, 220px);
-    height: 38%;
+    top: 68px;
+    height: calc(42% - 68px);
+    width: min(44vw, 175px);
     pointer-events: none;
   }
   .char-img {
@@ -1315,8 +1315,11 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 .loader.is-exit {
-  pointer-events: none;
-  animation: ld-wipe .95s cubic-bezier(.7, 0, .2, 1) .35s forwards;
+  pointer-events: none !important;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s ease, visibility .35s;
+  animation: ld-wipe .45s cubic-bezier(.7, 0, .2, 1) forwards;
 }
 @keyframes ld-wipe {
   to { clip-path: polygon(140% 0, 100% 0, 100% 100%, 100% 100%); }
