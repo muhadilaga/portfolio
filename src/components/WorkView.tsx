@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { CONFIG } from "../config";
 import SocialIcon from "./SocialIcon";
+import GithubActivity from "./GithubActivity";
 
 interface WorkViewProps {
   active: boolean;
@@ -150,12 +151,7 @@ export default function WorkView({ active }: WorkViewProps) {
           </a>
         </div>
         <div className="gh-chart-box">
-          <img
-            src="https://ghchart.rshah.org/muhadilaga"
-            alt="Muhammad Adilaga's GitHub Contributions Chart"
-            className="gh-chart-svg"
-            loading="lazy"
-          />
+          <GithubActivity />
         </div>
       </div>
     </section>

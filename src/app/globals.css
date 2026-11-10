@@ -573,11 +573,71 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   display: flex;
   justify-content: center;
 }
-.gh-chart-svg {
-  min-width: 720px;
-  max-width: 100%;
-  height: auto;
+.gh-chart-scroll {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.gh-chart-grid {
+  margin: 0 auto;
+}
+.gh-chart-months {
+  position: relative;
+  height: 1rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+.gh-chart-months span {
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+.gh-chart-weeks {
+  display: flex;
+  gap: 3px;
+}
+.gh-chart-week {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.gh-chart-cell {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
   display: block;
+  flex: none;
+}
+.gh-chart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.7rem;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+}
+.gh-chart-legend {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.72rem;
+}
+.gh-chart-legend-cell {
+  width: 10px;
+  height: 10px;
+}
+.gh-chart-note {
+  padding: 1.2rem 0.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+.gh-chart-note a {
+  color: #fff;
+  text-decoration: underline;
 }
 
 /* Certifications section */
@@ -1189,16 +1249,10 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   }
   .gh-chart-box {
     padding: 0.85rem 0.5rem;
-    overflow-x: hidden;
+    overflow-x: auto;
     justify-content: center;
     width: 100%;
     box-sizing: border-box;
-  }
-  .gh-chart-svg {
-    min-width: 0;
-    width: 100%;
-    height: auto;
-    display: block;
   }
 
   /* Certifications: no text clipping, card deck scaled without overflow */
