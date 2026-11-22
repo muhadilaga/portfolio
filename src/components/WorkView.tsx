@@ -25,9 +25,10 @@ export default function WorkView({ active }: WorkViewProps) {
   };
 
   const project = CONFIG.projects[displayedProj] || CONFIG.projects[0];
-  const repoName = project.link.includes("github.com/muhadilaga/")
-    ? project.link.replace("https://github.com/muhadilaga/", "")
-    : "";
+  const repoName =
+    project.link && project.link.includes("github.com/muhadilaga/")
+      ? project.link.replace("https://github.com/muhadilaga/", "")
+      : "";
 
   return (
     <section
@@ -85,27 +86,31 @@ export default function WorkView({ active }: WorkViewProps) {
                     </span>
                   ))}
                 </div>
-                <a
-                  className="btn btn--solid"
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View Project ↗
-                </a>
+                {project.link && (
+                  <a
+                    className="btn btn--solid"
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Project ↗
+                  </a>
+                )}
               </div>
             ) : (
               <div className="gh-repo-card">
                 <div className="gh-repo-top">
-                  <div className="gh-repo-badge">
-                    <SocialIcon label="GitHub" size={16} />
-                    <span className="gh-repo-path">
-                      <span className="gh-repo-user">muhadilaga</span>
-                      <span className="gh-repo-slash">/</span>
-                      <span className="gh-repo-name">{repoName || project.name.toLowerCase().replace(/\s+/g, "-")}</span>
-                    </span>
-                  </div>
-                  <span className="gh-repo-pill">Repository</span>
+                  {project.link && (
+                    <div className="gh-repo-badge">
+                      <SocialIcon label="GitHub" size={16} />
+                      <span className="gh-repo-path">
+                        <span className="gh-repo-user">muhadilaga</span>
+                        <span className="gh-repo-slash">/</span>
+                        <span className="gh-repo-name">{repoName || project.name.toLowerCase().replace(/\s+/g, "-")}</span>
+                      </span>
+                    </div>
+                  )}
+                  {project.link && <span className="gh-repo-pill">Repository</span>}
                 </div>
                 <h3>{project.name}</h3>
                 <p className="lead sm gh-repo-desc">{project.desc}</p>
@@ -117,15 +122,17 @@ export default function WorkView({ active }: WorkViewProps) {
                   ))}
                 </div>
                 <div className="gh-repo-action">
-                  <a
-                    className="btn btn--solid gh-repo-btn"
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <SocialIcon label="GitHub" size={16} />
-                    <span>View on GitHub ↗</span>
-                  </a>
+                  {project.link && (
+                    <a
+                      className="btn btn--solid gh-repo-btn"
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <SocialIcon label="GitHub" size={16} />
+                      <span>View on GitHub ↗</span>
+                    </a>
+                  )}
                 </div>
               </div>
             )}

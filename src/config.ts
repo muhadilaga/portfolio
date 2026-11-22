@@ -5,7 +5,7 @@ export interface Project {
   name: string;
   desc: string;
   tags: string[];
-  link: string;
+  link?: string;
   image?: string;
 }
 

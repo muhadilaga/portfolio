@@ -1,0 +1,24 @@
+<!doctype html>
+<!-- Test fixture: the ids the portfolio page has, so the DOM stand-in knows them.
+     Mirrors the real page: the six section ids and the assistant section from
+     src/components/AgentAssistant.tsx. -->
+<html lang="en">
+<head><meta charset="utf-8"><title>Portfolio — test fixture</title></head>
+<body>
+<div id="app">
+  <main id="content">
+    <section id="home"></section>
+    <section id="about"></section>
+    <section id="work"></section>
+    <section id="certifications"></section>
+    <section id="services"></section>
+    <section id="contact"></section>
+  </main>
+  <section id="assistant" aria-labelledby="assistant-heading">
+    <h2 id="assistant-heading">Ask the Portfolio Guide</h2>
+    <p id="assistant-status" role="status">Connecting the assistant…</p>
+    <div id="agent-app"></div>
+  </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "exports": [
+    {
+      "aliases": [
+        "portfolio_guide"
+      ],
+      "front_man": "portfolio_guide",
+      "network": "portfolio_guide",
+      "url": "portfolio_guide"
+    }
+  ],
+  "imports": [],
+  "link_updates": {
+    "mode": "browser-local"
+  },
+  "protocol": "nsdeploy-link/v1"
+}

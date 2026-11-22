@@ -27,8 +27,8 @@ export const SITE_CONTENT = {
   about: {
     text: "Fresh graduate with a B.S. in Informatics from Universitas Nahdlatul Ulama Cirebon. I build reliable, high-performance web systems and integrate practical AI workflows \u2014 from full-stack platforms and REST microservices to applied machine learning and local LLM automations.",
     stats: [
-      { n: "4", l: "Featured projects" },
-      { n: "10", l: "Certifications" },
+      { n: "8", l: "Featured projects" },
+      { n: "11", l: "Certifications" },
       { n: "10", l: "Technologies" },
     ],
     stack: ["JavaScript", "TypeScript", "React", "Next.js", "PHP", "Laravel", "Python", "PostgreSQL", "MySQL", "REST API"],
@@ -58,6 +58,29 @@ export const SITE_CONTENT = {
       desc: "Undergraduate thesis: ESP32 sensor telemetry combined with Random Forest regression for household energy efficiency.",
       tags: ["ESP32", "Random Forest", "IoT"],
       link: "https://github.com/muhadilaga/smart-energy-firebase-complete",
+    },
+    {
+      name: "DuaFrame",
+      desc: "Online photobooth for long-distance couples (Next.js + TypeScript + Tailwind CSS, deployed on Vercel).",
+      tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+      link: "https://github.com/muhadilaga/dua-frame",
+    },
+    {
+      name: "Kopi Rush",
+      desc: "Coffee-shop time-management game, an OpenGame Game Jam #1 entry.",
+      tags: ["HTML", "Canvas", "JavaScript"],
+      link: "https://opengame.io/g/g3gynpw3th",
+    },
+    {
+      name: "Token Radar",
+      desc: "Pre-token DeFi launch radar, a make.fun bounty entry.",
+      tags: ["TypeScript", "Agentic Web"],
+      link: "https://github.com/muhadilaga/token-radar",
+    },
+    {
+      name: "AI Job Agent",
+      desc: "Python CLI job-hunt agent that searches job boards, scores matches with local LLMs, and tracks applications in SQLite.",
+      tags: ["Python", "Ollama", "SQLite"],
     },
   ],
 

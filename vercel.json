@@ -1,0 +1,68 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "headers": [
+    {
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ],
+      "source": "/agent-manifest.json"
+    },
+    {
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ],
+      "source": "/portfolio_guide.network.json"
+    },
+    {
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ],
+      "source": "/links.json"
+    },
+    {
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ],
+      "source": "/agent-mcp.json"
+    },
+    {
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ],
+      "source": "/.well-known/nsdeploy.json"
+    },
+    {
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ],
+      "source": "/.well-known/nsdeploy-agent.json"
+    },
+    {
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'none'; script-src blob:; connect-src 'none'; worker-src 'none'"
+        }
+      ],
+      "source": "/runtime/sandbox-worker.js"
+    }
+  ]
+}

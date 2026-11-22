@@ -1,0 +1,79 @@
+{
+  "actions": {
+    "agentTools": [
+      "get_portfolio_state",
+      "navigate_to_section",
+      "open_project_link",
+      "copy_email"
+    ],
+    "bridge": "./bridge/action-bridge.html",
+    "module": "./site-actions.js",
+    "version": 1
+  },
+  "agent_mcp": {
+    "available": false,
+    "front_man": "portfolio_guide",
+    "network": "portfolio_guide",
+    "protocol": "nsdeploy-agent-mcp/v1",
+    "reason": "This is a static bundle; a public MCP facade requires an application host."
+  },
+  "allowed_peers": [],
+  "brand": "Muhammad Adilaga Portfolio Assistant",
+  "deployment": {
+    "browser_mock": false,
+    "direct_byok": true,
+    "direct_mcp_requires_cors": true,
+    "mode": "static",
+    "public_mcp_facade": false,
+    "self_contained_runtime": true
+  },
+  "linking": {
+    "exports": [
+      {
+        "aliases": [
+          "portfolio_guide"
+        ],
+        "front_man": "portfolio_guide",
+        "network": "portfolio_guide",
+        "url": "portfolio_guide"
+      }
+    ],
+    "imports": [],
+    "link_updates": {
+      "mode": "browser-local"
+    },
+    "protocol": "nsdeploy-link/v1"
+  },
+  "llm_router": {
+    "base_url": "https://api.otari.ai/api/v1",
+    "byok_router": "https://api.otari.ai/api/v1",
+    "mock": false
+  },
+  "networks": [
+    {
+      "description": "Ask the Portfolio Guide about Muhammad Adilaga — his projects, skills, education and certifications — and let it show you around the portfolio.",
+      "front_man": "portfolio_guide",
+      "hocon": "./portfolio_guide.network.json",
+      "name": "portfolio_guide",
+      "sample_queries": [
+        "What projects has Muhammad built with Next.js?",
+        "What is Muhammad's GPA and education background?",
+        "Show me the LeafGuard project and open its GitHub page.",
+        "What certifications does Muhammad have?",
+        "How can I contact Muhammad?",
+        "Can you apply for a job on Muhammad's behalf?"
+      ],
+      "tags": [
+        "agentified-website"
+      ]
+    }
+  ],
+  "peer_policy": {
+    "deny_origins": [],
+    "mode": "closed",
+    "note": "Local agents and page-local actions only."
+  },
+  "theme": {
+    "primary": "#da291c"
+  }
+}

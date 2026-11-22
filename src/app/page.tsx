@@ -10,6 +10,7 @@ import CertificationsView from "../components/CertificationsView";
 import ServicesView from "../components/ServicesView";
 import ContactView from "../components/ContactView";
 import Marquee from "../components/Marquee";
+import AgentAssistant from "../components/AgentAssistant";
 
 export default function Page() {
   const [currentSection, setCurrentSection] = useState<SectionId>("home");
@@ -141,6 +142,8 @@ export default function Page() {
       </main>
 
       <Marquee />
+
+      <AgentAssistant />
 
       {showLoader && (
         <Loader onDone={handleLoaderDone} onDestroy={handleLoaderDestroy} />
