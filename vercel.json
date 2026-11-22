@@ -1,6 +1,21 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/portfolio_guide",
+      "destination": "/portfolio_guide.network.json"
+    }
+  ],
   "headers": [
+    {
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ],
+      "source": "/portfolio_guide"
+    },
     {
       "headers": [
         {
